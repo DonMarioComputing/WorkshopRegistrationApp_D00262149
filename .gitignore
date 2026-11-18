@@ -1,0 +1,14 @@
+# Visual Studio and VS Code generated files
+.vs/
+.vscode/
+
+# .NET compiled files
+bin/
+obj/
+
+# User registration data
+App_Data/registrations.jsonl
+
+# Temporary files
+*.user
+*.suo
