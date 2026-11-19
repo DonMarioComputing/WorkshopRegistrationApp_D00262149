@@ -1,0 +1,2 @@
+{"Id": "1b28accd-4dbb-451a-a4f2-0919c47bc2a1", "FirstName": "Mario", "Age": 28, "Workshop": "Web Development", "NeedsLaptop": true, "SubmittedAtUtc": "2026-11-10T10:30:00+00:00"}
+{"Id": "c6e06dae-40bc-429b-b3b4-63f74aa1af33", "FirstName": "Kobe", "Age": 25, "Workshop": "Database Basics", "NeedsLaptop": false, "SubmittedAtUtc": "2026-11-11T14:15:00+00:00"}
