@@ -1,4 +1,3 @@
-/* CSS only changes the appearance; validation and saving happen in C#. */
 :root { font-family: Segoe UI, Arial, sans-serif; color: #17263a; background: #f4f7fb; }
 * { box-sizing: border-box; }
 body { margin: 0; line-height: 1.55; }
