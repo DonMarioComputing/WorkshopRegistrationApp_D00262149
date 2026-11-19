@@ -1,0 +1,55 @@
+/* CSS only changes the appearance; validation and saving happen in C#. */
+:root { font-family: Segoe UI, Arial, sans-serif; color: #17263a; background: #f4f7fb; }
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.55; }
+a { color: #175cd3; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.site-header { background: #fff; border-bottom: 1px solid #e4eaf2; }
+.nav-container { max-width: 1050px; margin: auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { font-size: 1.07rem; font-weight: 750; color: #153e73; }
+.nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.page-container { max-width: 900px; margin: 48px auto 64px; padding: 0 24px; }
+.page-heading { margin-bottom: 28px; }
+.eyebrow { font-size: .72rem; letter-spacing: .16em; font-weight: 800; color: #3a75d2; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.55rem); letter-spacing: -.035em; margin: 8px 0; }
+h2 { font-size: 1.2rem; margin: 0 0 22px; }
+p { color: #56657a; }
+.form-card, .table-card { background: #fff; border: 1px solid #e5ebf3; border-radius: 14px; padding: 32px; box-shadow: 0 10px 35px rgba(22, 49, 91, .04); }
+.form-card { max-width: 650px; }
+.field { margin: 0 0 22px; }
+.field label { display: block; margin-bottom: 7px; font-weight: 650; }
+.field input, .field select { display: block; width: 100%; min-height: 47px; padding: 10px 13px; border: 1px solid #c4d0df; border-radius: 8px; font: inherit; color: inherit; background-color: #fff; }
+.field input:focus, .field select:focus { outline: 3px solid rgba(58,117,210,.17); border-color: #3a75d2; }
+.field-hint { font-size: .8rem; margin: 7px 0 0; }
+.checkbox-row { display: flex; gap: 11px; align-items: center; margin-bottom: 26px; }
+.checkbox-row input { width: 18px; height: 18px; accent-color: #1f65cb; }
+.checkbox-row label { font-weight: 600; }
+.form-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.primary-button { display: inline-block; cursor: pointer; border: 0; border-radius: 8px; background: #185abc; color: #fff; font: inherit; font-weight: 700; padding: 12px 21px; }
+.primary-button:hover { background: #104595; text-decoration: none; }
+.notice { padding: 20px 24px; border-radius: 11px; margin: 0 0 24px; }
+.notice h2 { margin: 0 0 8px; }
+.notice p { margin: 0 0 12px; }
+.success { background: #ecf8f0; border: 1px solid #a9d8b5; }
+.error { background: #fff1f0; border: 1px solid #fac0bb; color: #8a1d1d; }
+.confirmation-details { display: grid; grid-template-columns: 150px 1fr; gap: 8px 16px; margin: 14px 0 0; }
+.confirmation-details dt { font-weight: 700; }
+.confirmation-details dd { margin: 0; }
+.validation-summary ul { margin-top: 0; color: #a12828; }
+.validation-summary-valid { display: none; }
+.validation-message { display: block; margin: 5px 0 0; font-size: .87rem; color: #a12828; }
+.validation-message:empty { display: none; }
+.input-validation-error { border-color: #ce4545 !important; }
+.table-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.table-heading h2 { margin-bottom: 16px; }
+.table-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; text-align: left; }
+th, td { padding: 13px 15px; border-bottom: 1px solid #e7edf5; white-space: nowrap; }
+th { background: #f5f8fc; font-size: .82rem; color: #4a617f; }
+.site-footer { font-size: .8rem; text-align: center; padding: 26px; color: #7b889a; }
+@media (max-width: 620px) {
+ .nav-container { align-items: flex-start; flex-direction: column; }
+ .page-container { margin-top: 28px; }
+ .form-card, .table-card { padding: 20px; }
+ .confirmation-details { grid-template-columns: 110px 1fr; }
+}
