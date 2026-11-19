@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Workshop Registration</title>
+    @* The CSS file lives under wwwroot/css. *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-container" aria-label="Main navigation">
+            <a class="brand" asp-page="/Index">Workshop Registration</a>
+            <div class="nav-links">
+                <a asp-page="/Index">Register</a>
+                <a asp-page="/Registrations">Saved registrations</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        @* RenderBody() inserts Index.cshtml or Registrations.cshtml here. *@
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">ASP.NET Core Razor Pages · C# · File Handling</footer>
+</body>
+</html>
