@@ -1,0 +1,86 @@
+@page
+@model WorkshopRegistrationApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+@* This is the VIEW: the HTML that the visitor sees in the browser.
+   The matching C# code is in Index.cshtml.cs. *@
+<div class="page-heading">
+    <span class="eyebrow">WORKSHOP SIGN-UP</span>
+    <h1>Register for a workshop</h1>
+    <p>Fill in your details, select a workshop and tell us if you need a laptop.</p>
+</div>
+
+@* If OnPostAsync successfully saved a registration, show its details. *@
+@if (Model.SavedRegistration is not null)
+{
+    <section class="notice success" role="status" aria-live="polite">
+        <h2>Registration successful!</h2>
+        <p>Your details have been saved to the registration file.</p>
+        <dl class="confirmation-details">
+            <dt>First name</dt>
+            <dd>@Model.SavedRegistration.FirstName</dd>
+            <dt>Age</dt>
+            <dd>@Model.SavedRegistration.Age</dd>
+            <dt>Workshop</dt>
+            <dd>@Model.SavedRegistration.Workshop</dd>
+            <dt>Laptop required</dt>
+            <dd>@(Model.SavedRegistration.NeedsLaptop ? "Yes" : "No")</dd>
+        </dl>
+    </section>
+}
+
+<section class="form-card" aria-labelledby="form-heading">
+    <h2 id="form-heading">Participant details</h2>
+
+    @* POST sends the form values to OnPostAsync in Index.cshtml.cs.
+       asp-antiforgery="true" adds a token to help block forged requests.
+       ASP.NET model binding connects each asp-for input to Input.Property. *@
+    <form method="post" asp-antiforgery="true">
+
+        @* Show SERVER validation errors together at the top of the form. *@
+        <div asp-validation-summary="All" class="validation-summary" aria-live="polite"></div>
+
+        <div class="field">
+            <label asp-for="Input.FirstName"></label>
+            @* HTML required/minlength/maxlength provide BROWSER validation. *@
+            <input asp-for="Input.FirstName" type="text"
+                   placeholder="e.g. Mario" autocomplete="given-name"
+                   required minlength="2" maxlength="40" />
+            <span asp-validation-for="Input.FirstName" class="validation-message"></span>
+        </div>
+
+        <div class="field">
+            <label asp-for="Input.Age"></label>
+            <input asp-for="Input.Age" type="number"
+                   placeholder="Your age" min="16" max="110" step="1" required />
+            <span asp-validation-for="Input.Age" class="validation-message"></span>
+            <p class="field-hint">This example accepts ages from 16 to 120.</p>
+        </div>
+
+        <div class="field">
+            <label asp-for="Input.Workshop"></label>
+            @* The values must also be checked by C# in OnPostAsync, because
+               someone can fake a POST request and send an unlisted value. *@
+            <select asp-for="Input.Workshop" required>
+                <option value="">-- Choose a workshop --</option>
+                <option value="Web Development">Web Development</option>
+                <option value="C# Fundamentals">C# Fundamentals</option>
+                <option value="Database Basics">Database Basics</option>
+            </select>
+            <span asp-validation-for="Input.Workshop" class="validation-message"></span>
+        </div>
+
+        <div class="checkbox-row">
+            @* Razor's checkbox helper also sends false when it is unchecked. *@
+            <input asp-for="Input.NeedsLaptop" type="checkbox" />
+            <label asp-for="Input.NeedsLaptop"></label>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="primary-button">Submit registration</button>
+            <a asp-page="/Registrations">View saved registrations</a>
+        </div>
+    </form>
+</section>
