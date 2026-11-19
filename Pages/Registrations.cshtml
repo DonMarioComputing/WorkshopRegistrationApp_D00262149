@@ -1,0 +1,60 @@
+@page
+@model WorkshopRegistrationApp.Pages.RegistrationsModel
+@{
+    ViewData["Title"] = "Saved registrations";
+}
+
+@* This page demonstrates the FILE READING requirement.
+   The PageModel loads saved objects and passes them to this view. *@
+<div class="page-heading">
+    <span class="eyebrow">REGISTRATION HISTORY</span>
+    <h1>Saved registrations</h1>
+    <p>These registrations were read from App_Data/registrations.jsonl.</p>
+</div>
+
+@if (Model.LoadError is not null)
+{
+    <div class="notice error" role="alert">@Model.LoadError</div>
+}
+else if (Model.Registrations.Count == 0)
+{
+    <section class="form-card">
+        <p>No registrations have been saved yet.</p>
+        <a asp-page="/Index" class="primary-button">Register a participant</a>
+    </section>
+}
+else
+{
+    <section class="table-card" aria-label="Previous registrations">
+        <div class="table-heading">
+            <h2>Registrations (@Model.Registrations.Count)</h2>
+            <a asp-page="/Index">Add another</a>
+        </div>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">First name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Workshop</th>
+                        <th scope="col">Laptop?</th>
+                        <th scope="col">Submitted (UTC)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Registrations)
+                    {
+                        <tr>
+                            @* Razor automatically HTML-encodes these values. *@
+                            <td>@item.FirstName</td>
+                            <td>@item.Age</td>
+                            <td>@item.Workshop</td>
+                            <td>@(item.NeedsLaptop ? "Yes" : "No")</td>
+                            <td>@item.SubmittedAtUtc.UtcDateTime.ToString("dd MMM yyyy HH:mm")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+}
