@@ -16,7 +16,10 @@ public class IndexModel : PageModel
     {
         "Web Development",
         "C# Fundamentals",
-        "Database Basics"
+        "Database Basics",
+        "Cloud Foundation",
+        "Database Administration",
+        "Algorithms"
     };
 
     //ASP.NET provides the file service registered in Program.cs
