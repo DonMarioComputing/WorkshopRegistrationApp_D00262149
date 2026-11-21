@@ -23,12 +23,12 @@ if (!app.Environment.IsDevelopment())
 //Encrypts information in transit redirecting HTTP to HTTPS
 app.UseHttpsRedirection();
 
-//Allow the browser to load files in wwwroot,CSS.
+//Allow the browser to load files in wwwroot,CSS
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
-//Match incoming URLs to Razor Pages including Index and Registrations.
+//Match incoming URLs to Razor Pages including Index and Registrations
 app.MapRazorPages();
 
 //Start the web server
